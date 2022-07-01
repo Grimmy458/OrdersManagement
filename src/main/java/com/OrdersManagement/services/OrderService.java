@@ -1,5 +1,6 @@
 package com.OrdersManagement.services;
 
+import com.OrdersManagement.enums.DeliveryType;
 import com.OrdersManagement.exceptions.ValidationException;
 import com.OrdersManagement.utils.print.CSVPrinter;
 import com.OrdersManagement.dao.DAOException;
@@ -62,9 +63,13 @@ public class OrderService {
                 orderData.add(order.getStatus().toString());
                 orderData.add(order.getOrderDate().toString());
                 orderData.add(order.getDeliveryType().toString());
-
-                orderData.add(order.getDeliveryInfo().getAddress());
-                orderData.add(order.getDeliveryInfo().getPrice().toString());
+                if (order.getDeliveryType() == DeliveryType.DELIVERY ) {
+                    orderData.add(order.getDeliveryInfo().getAddress());
+                    orderData.add(order.getDeliveryInfo().getPrice().toString());
+                } else {
+                    orderData.add("");
+                    orderData.add("");
+                }
                 orderData.add(order.getTotalPrice().toString());
                 ordersData.add(orderData);
             }
