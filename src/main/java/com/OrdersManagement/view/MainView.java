@@ -63,6 +63,7 @@ public class MainView {
             @Override
             public void executeAction() {
                 OrderDTO orderDTO = new OrderDTO();
+                //додавання продуктів в замовлення поки користувач не введе "0"
                 while (true){
                     long productId = this.prompt("Enter product id: -1 to exit", Long.class);
                     if (productId == -1) {
@@ -154,7 +155,6 @@ public class MainView {
                     this.println("Product not found");
                     return;
                 }
-//              Display product info
                 this.println(ProductFormatter.formatToConsole(product));
 
                 String name = this.prompt("Enter name: -1 to exit", String.class, product.getName());

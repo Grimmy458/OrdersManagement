@@ -13,14 +13,13 @@ public class MenuView extends AbstractView {
         menuViews.add(menuView);
     }
 
-
     @Override
     public void show() {
         this.println(displayTitle);
         for (int i = 0; i < menuViews.size(); i++) {
             this.println(i + 1 + " - " + menuViews.get(i).getDisplayName());
         }
-        Boolean hasParent = parentView != null;
+        boolean hasParent = parentView != null;
         if (hasParent) {
             this.println("0 - Back");
         } else {

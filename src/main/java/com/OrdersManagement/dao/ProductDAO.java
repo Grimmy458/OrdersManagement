@@ -42,7 +42,6 @@ public class ProductDAO extends AbstractDAO<Product> {
                 break;
             }
         }
-
     }
 
     public void delete(Product entity) {

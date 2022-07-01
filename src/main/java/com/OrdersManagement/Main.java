@@ -30,7 +30,6 @@ public class Main {
         OrderService orderService = new OrderService(orderDAO, productService);
 
         MainView view = new MainView();
-//        ErrorView errorView = new ErrorView();
         MainController controller = new MainController(view, productService, orderService);
         view.setController(controller);
         view.show();

@@ -19,7 +19,7 @@ public class Order {
     public Order(long id) {
         this.id = id;
         this.status = OrderStatus.NEW;
-        this.items = new ArrayList<OrderItem>();
+        this.items = new ArrayList<>();
         this.orderDate = new Date();
         this.deliveryType = null;
         this.deliveryInfo = null;

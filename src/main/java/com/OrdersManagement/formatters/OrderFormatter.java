@@ -14,9 +14,7 @@ public class OrderFormatter {
             sb.append("\t").append(OrderItemFormatter.formatToConsole(item)).append("\n");
         }
         if (orderDTO.getDeliveryInfo() != null) {
-            sb.append("deliveryInfo: ").append(DeliveryInfoFormatter.formatToConsole(orderDTO.getDeliveryInfo())).append("\n");
-        }else {
-//            sb.append("deliveryInfo: ");
+            sb.append("Delivery Info: ").append(DeliveryInfoFormatter.formatToConsole(orderDTO.getDeliveryInfo())).append("\n");
         }
         if (orderDTO.getDeliveryType() != null)
             sb.append("Delivery Type: ").append(orderDTO.getDeliveryType()).append("\n");

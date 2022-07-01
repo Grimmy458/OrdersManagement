@@ -16,7 +16,6 @@ public class OrderConverter {
         if (order.getDeliveryInfo() != null) {
             orderDTO.setDeliveryInfo(DeliveryInfoConverter.toDTO(order.getDeliveryInfo()));
         }
-//        orderDTO.setDeliveryInfo(DeliveryInfoConverter.toDTO(order.getDeliveryInfo()));
         orderDTO.setDeliveryType(order.getDeliveryType());
         for (OrderItem item : order.getItems()) {
             orderDTO.addItem(OrderItemConverter.toDTO(item));

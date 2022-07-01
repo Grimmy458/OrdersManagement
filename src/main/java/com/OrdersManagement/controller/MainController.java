@@ -15,8 +15,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainController {
-//    private OrderDAO orderDAO;
-//    private ProductDAO productDAO;
     private MainView view;
     private ProductService productService;
     private OrderService orderService;
