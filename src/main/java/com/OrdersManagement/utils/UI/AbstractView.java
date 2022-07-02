@@ -1,7 +1,5 @@
 package com.OrdersManagement.utils.UI;
 
-import com.sun.istack.internal.Nullable;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Locale;
@@ -55,9 +53,9 @@ public abstract class AbstractView {
     protected <T> T prompt(String prompt, Class<T> type) {
         return prompt(prompt, type, null);
     }
-    protected <T> T prompt(String prompt, Class<T> type, @Nullable T defaultValue) {
+    protected <T> T prompt(String prompt, Class<T> type, T defaultValue) {
         T result = null;
-        Boolean isValid = false;
+        boolean isValid = false;
         this.println(prompt);
         while (!isValid) {
             Object input;
@@ -78,11 +76,10 @@ public abstract class AbstractView {
                     input = scanner.nextShort();
                 } else if (type == Byte.class) {
                     input = scanner.nextByte();
-//                    Byte.valueOf()
                 } else if (type == Character.class) {
                     input = scanner.next().charAt(0);
                 } else if (type == BigDecimal.class) {
-                    input = new BigDecimal(stringScanner.next());
+                    input = scanner.nextBigDecimal();
                 } else if (type == BigInteger.class) {
                     input = scanner.nextBigInteger();
                 } else {
