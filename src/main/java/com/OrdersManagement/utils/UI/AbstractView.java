@@ -57,8 +57,8 @@ public abstract class AbstractView {
         T result = null;
         boolean isValid = false;
         this.println(prompt);
+        Object input;
         while (!isValid) {
-            Object input;
             try {
                 if (type == Integer.class) {
                     input = scanner.nextInt();
@@ -88,12 +88,17 @@ public abstract class AbstractView {
             } catch (Exception e) {
                 input = defaultValue;
             }
-            try {
-                result = type.cast(input);
-                isValid = true;
-            } catch (ClassCastException e) {
-                this.println(e.toString());
-                this.println("Invalid input. Try again:");
+            if (input != null) {
+                try {
+                    result = type.cast(input);
+                    isValid = true;
+                } catch (ClassCastException e) {
+                    this.println(e.toString());
+                }
+            }
+            if (!isValid) {
+                this.println("Invalid input, please try again");
+                scanner.next();
             }
         }
         return result;
